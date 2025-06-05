@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Diego-Armando-Ardila-Vargas-s-workspace-9aibu7.eu-central-1.xata.sh/db/diego_snapcast",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
