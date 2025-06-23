@@ -6,7 +6,7 @@ import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { and, desc, eq, ilike, or, sql } from "drizzle-orm";
 import { auth } from "@/lib/auth";
-import { apiFetch, doesTitleMatch, getEnv, getOrderByClause, withErrorHandling } from '@lib/utils';
+import { apiFetch, doesTitleMatch, getEnv, getOrderByClause, withErrorHandling } from '../utils';
 import { BUNNY } from "@/constants";
 import aj, { fixedWindow, request } from "../arcjet";
 
@@ -78,14 +78,14 @@ export const getVideoUploadUrl = withErrorHandling(async () => {
 
 export const getThumbnailUploadUrl = withErrorHandling(
   async (videoId: string) => {
-    const timestampedFileName = `${Date.now()}-${videoId}-thumbnail`;
-    const uploadUrl = `${THUMBNAIL_STORAGE_BASE_URL}/thumbnails/${timestampedFileName}`;
-    const cdnUrl = `${THUMBNAIL_CDN_URL}/thumbnails/${timestampedFileName}`;
+    const FileName = `${Date.now()}-${videoId}-thumbnail`;
+    const uploadUrl = `${THUMBNAIL_STORAGE_BASE_URL}/thumbnails/${FileName}`;
+    const cdnUrl = `${THUMBNAIL_CDN_URL}/thumbnails/${FileName}`;
 
     return {
       uploadUrl,
       cdnUrl,
-      accessKey: ACCESS_KEYS.storageAccessKey,
+      accessKey: ACCESS_KEYS.storageAccessKey
     };
   }
 );
@@ -101,7 +101,7 @@ export const saveVideoDetails = withErrorHandling(
         bunnyType: "stream",
         body: {
           title: videoDetails.title,
-          description: videoDetails.description,
+          description: videoDetails.description
         },
       }
     );
@@ -111,8 +111,8 @@ export const saveVideoDetails = withErrorHandling(
       ...videoDetails,
       videoUrl: `${BUNNY.EMBED_URL}/${BUNNY_LIBRARY_ID}/${videoDetails.videoId}`,
       userId,
-      createdAt: now,
-      updatedAt: now,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
 
     revalidatePaths(["/"]);

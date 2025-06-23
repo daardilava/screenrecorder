@@ -1,4 +1,7 @@
-import { EmptyState, Pagination, SharedHeader, VideoCard } from "@/components";
+import EmptyState from "@/components/EmptyState";
+import Pagination from "@/components/Pagination";
+import SharedHeader from "@/components/SharedHeader";
+import VideoCard from "@/components/VideoCard";
 import { getAllVideos } from "@/lib/actions/video";
 
 const page = async ({ searchParams }: SearchParams) => {
@@ -16,7 +19,7 @@ const page = async ({ searchParams }: SearchParams) => {
 
       {videos?.length > 0 ? (
         <section className="video-grid">
-          {videos.map(({ video, user }) => (
+          {videos.map (({ video, user }) => (
             <VideoCard
               key={video.id}
               id={video.videoId}

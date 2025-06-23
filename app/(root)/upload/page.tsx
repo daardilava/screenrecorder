@@ -3,8 +3,7 @@
 import { useState, FormEvent, ChangeEvent, useEffect } from "react";
 import { getVideoUploadUrl, getThumbnailUploadUrl, saveVideoDetails } from "@/lib/actions/video";
 import { useRouter } from "next/navigation";
-import FileInput from "@/components/FileInput";
-import FormField from "@/components/FormField";
+import { FileInput, FormField } from "@/components";
 import { useFileInput } from "@/lib/hooks/useFileInput";
 import { MAX_THUMBNAIL_SIZE, MAX_VIDEO_SIZE } from "@/constants";
 

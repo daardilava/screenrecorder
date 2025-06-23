@@ -5,10 +5,10 @@ export const MAX_THUMBNAIL_SIZE = 10 * 1024 * 1024; // 10MB
 // Configuración de BunnyCDN
 export const BUNNY = {
   STREAM_BASE_URL: "https://video.bunnycdn.com/library",
-  STORAGE_BASE_URL: "https://sg.storage.bunnycdn.com/snapcast-diego",
+  STORAGE_BASE_URL: "https://storage.bunnycdn.com/snapcast-vargas",
   CDN_URL: "https://snapcast-diego.b-cdn.net",
   EMBED_URL: "https://iframe.mediadelivery.net/embed",
-  TRANSCRIPT_URL: "https://vz-b7a30d95-d06.b-cdn.net",
+  TRANSCRIPT_URL: "https://vz-54284607-767.b-cdn.net",
 };
 
 // Emojis disponibles
